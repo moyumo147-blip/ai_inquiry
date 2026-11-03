@@ -1,0 +1,190 @@
+:root {
+  --ac-bg: #f4f7f9;
+  --ac-primary: #1f8a70;
+  --ac-primary-dark: #166b57;
+  --ac-danger: #d9534f;
+  --ac-warn: #e6a23c;
+  --ac-text: #1f2d3d;
+  --ac-muted: #7b8794;
+  --ac-border: #e3e8ee;
+  --ac-card: #ffffff;
+  --ac-radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+  background: var(--ac-bg);
+  color: var(--ac-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--ac-primary);
+  text-decoration: none;
+}
+
+.page {
+  padding: 20px 24px 32px;
+}
+
+.page-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.page-subtitle {
+  color: var(--ac-muted);
+  font-size: 13px;
+  margin: 0 0 18px;
+}
+
+.card {
+  background: var(--ac-card);
+  border-radius: var(--ac-radius);
+  border: 1px solid var(--ac-border);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+}
+
+.muted {
+  color: var(--ac-muted);
+}
+
+/* ── 聊天气泡 ── */
+.chat-bubble {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.chat-bubble.user {
+  flex-direction: row-reverse;
+}
+
+.chat-bubble .avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex: 0 0 34px;
+  background: #e8f5f1;
+}
+
+.chat-bubble.user .avatar {
+  background: #eaf0ff;
+}
+
+.chat-bubble .body {
+  max-width: min(760px, 78%);
+}
+
+.chat-bubble .bubble {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid var(--ac-border);
+  line-height: 1.7;
+  font-size: 14px;
+  word-break: break-word;
+}
+
+.chat-bubble.user .bubble {
+  background: var(--ac-primary);
+  color: #fff;
+  border-color: var(--ac-primary);
+}
+
+.chat-bubble .time {
+  font-size: 11px;
+  color: var(--ac-muted);
+  margin-top: 4px;
+}
+
+/* ── Markdown ── */
+.markdown-body {
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3 {
+  font-size: 15px;
+  margin: 12px 0 6px;
+}
+
+.markdown-body p {
+  margin: 6px 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 20px;
+  margin: 6px 0;
+}
+
+.markdown-body blockquote {
+  margin: 8px 0;
+  padding: 6px 12px;
+  border-left: 3px solid var(--ac-border);
+  color: var(--ac-muted);
+  background: #fafbfc;
+}
+
+.markdown-body code {
+  background: #f2f4f7;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.markdown-body pre {
+  background: #1e2430;
+  color: #e6edf3;
+  padding: 12px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  margin: 8px 0;
+}
+
+.markdown-body th,
+.markdown-body td {
+  border: 1px solid var(--ac-border);
+  padding: 4px 8px;
+}
+
+/* ── Element 覆盖 ── */
+.el-button--primary {
+  --el-button-bg-color: var(--ac-primary);
+  --el-button-border-color: var(--ac-primary);
+  --el-button-hover-bg-color: var(--ac-primary-dark);
+  --el-button-hover-border-color: var(--ac-primary-dark);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cfd8e3;
+  border-radius: 3px;
+}

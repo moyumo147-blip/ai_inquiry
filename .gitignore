@@ -1,0 +1,34 @@
+# ── Python ──
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ── 环境变量（含 API Key，禁止提交）──
+.env.local
+.env
+
+# ── 知识库原始数据（约 7GB，不入库）──
+medical_data/
+samples/
+
+# ── IDE ──
+.idea/
+.vscode/
+
+# ── 前端 ──
+frontend/node_modules/
+frontend/dist/
+frontend/shots/
+frontend/.vite/
+frontend/*.png
+frontend/.env.local
+
+# ── 杂项 ──
+*.log
+.DS_Store
+Thumbs.db

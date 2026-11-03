@@ -1,0 +1,30 @@
+# docker-compose.yml（可选）
+# 本机已有 PostgreSQL 18 + pgvector，直接连本地库即可，不需要这个文件。
+# 换机器 / 想隔离环境时用它起一个带 pgvector 的库（端口 5433，避免和本地 5432 冲突）。
+#
+# 启动：docker compose up -d
+# 然后在 .env.local 里把 DB_PORT 改成 5433。
+# 注意：知识库数据不在这个容器里，换库需要重新跑入库脚本（main.py）。
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg18
+    container_name: ai_consultation_pg
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: consultation
+      TZ: Asia/Shanghai
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./scripts/init_db.sql:/docker-entrypoint-initdb.d/10_init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d consultation"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pgdata:
